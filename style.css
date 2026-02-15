@@ -1,0 +1,754 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* フェードインアニメーション */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 遅延アニメーション用 */
+.fade-in-delay-1 {
+    transition-delay: 0.2s;
+}
+
+.fade-in-delay-2 {
+    transition-delay: 0.4s;
+}
+
+.fade-in-delay-3 {
+    transition-delay: 0.6s;
+}
+
+header {
+    background-color: white;
+    height: 10vh;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: relative;
+}
+
+.header-logo {
+    width: 80px;
+    height: 50px;
+    border-radius: 25px;
+    object-fit: cover;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    justify-content: center; /* 中央揃え */
+    align-items: center; /* 縦方向の中央揃え */
+    height: 100%; /* ヘッダーの高さいっぱいに */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-left: 100px; /* ロゴとの間隔を空ける */
+}
+
+header ul li {
+    padding: 10px 15px; /* モバイル版の余白追加 */
+}
+
+header ul li a {
+     color: black;  /* リンクの色を黒に */
+    text-decoration: none;  /* 下線を消す */
+    font-weight: bold;  /* 太字にする(お好みで) */
+}
+
+body {
+    text-align: center;
+}
+
+section {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.top {
+    height: 100vh;
+}
+
+.concept {
+    height: auto;
+}
+
+/* 私たちの想い - 特別なスタイル */
+.concept .fade-in:nth-child(2) p span {
+    color: rgb(139, 111, 71);
+    font-weight: bold;
+    background: linear-gradient(transparent 60%, rgba(139, 111, 71, 0.2) 60%);
+    padding: 0 4px;
+}
+
+/* こだわりセクション - 太字スタイル */
+.concept .fade-in:nth-child(3) ul li p span {
+    font-weight: bold;
+    color: rgb(139, 111, 71);
+}
+
+.menu {
+     background-color: #FDF5E6;
+    width: 100vw;
+    min-height: 100vh; /* 追加 */
+    height: auto;
+}
+
+.contact {
+    width: 100vw;
+    min-height: 50vh; /* 追加 */
+    height: auto;
+    padding: 40px 0; /* 追加 */
+}
+
+.Access {
+    width: 100vw;
+    min-height: 50vh; /* 追加 */
+    height: auto;
+    padding: 40px 0; /* 追加 */
+    display: flex; /* flexbox追加 */
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: center; /* 中央揃え */
+}
+
+h2 {
+    color: rgb(139, 111, 71);
+    margin: 20px ;
+    padding: 20px;
+}
+
+.page1 {
+    background-image:url(../rimacafe/img/top.jpg);
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+}
+
+.home p {
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.top-logo {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Menuセクションの画像を中央に配置 */
+.grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.grid img {
+    width: 300px;
+    height: auto;
+    margin: 10px auto;
+}
+
+/* Drink セクション - グリッドレイアウト */
+.grid_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Menu item styling - 画像と説明を連結 */
+.drink-item {
+    margin: 20px 0;
+    max-width: 300px;
+}
+
+.drink-item img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0; /* 画像下のマージン削除 */
+}
+
+.drink-item p {
+    background-color: white; /* 背景色を白に */
+    color: rgb(139, 111, 71); /* 料金の文字を茶色に */
+    padding: 15px;
+    margin: 0; /* マージン削除して連結 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.drink-item p strong {
+    display: block;
+    margin-bottom: 5px;
+    color: black; /* 商品名を黒に */
+}
+
+/* メニュー説明文のスタイル */
+.drink-item p .menu-description {
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 8px;
+    color: black;
+}
+
+/* Food セクション */
+.carry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tomato, .coconut {
+    margin: 20px 0;
+    max-width: 300px;
+}
+
+.tomato img, .coconut img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0; /* 画像下のマージン削除 */
+}
+
+.tomato p, .coconut p {
+    background-color: white; /* 背景色を白に */
+    color: rgb(139, 111, 71); /* 料金の文字を茶色に */
+    padding: 15px;
+    margin: 0; /* マージン削除して連結 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tomato p strong, .coconut p strong {
+    display: block;
+    margin-bottom: 5px;
+    color: black; /* 商品名を黒に */
+}
+
+/* Sweets セクション */
+.strovery {
+    margin: 20px 0;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.strovery img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0; /* 画像下のマージン削除 */
+}
+
+.strovery p {
+    background-color: white; /* 背景色を白に */
+    color: rgb(139, 111, 71); /* 料金の文字を茶色に */
+    padding: 15px;
+    margin: 0; /* マージン削除して連結 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.strovery p strong {
+    display: block;
+    margin-bottom: 5px;
+    color: black; /* 商品名を黒に */
+}
+
+/* 日替わりテキストのスタイル */
+.sweets-note {
+    background-color: white;
+    color: black;
+    padding: 15px;
+    margin: 30px auto 20px auto;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Healing セクション */
+.boss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.god img {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-bottom: 0; /* 画像下のマージン削除 */
+}
+
+.engel {
+    max-width: 300px;
+}
+
+.engel p {
+    background-color: white; /* 背景色を白に */
+    color: rgb(139, 111, 71); /* 料金の文字を茶色に */
+    padding: 15px;
+    margin: 0 0 10px 0; /* 段落間のマージンのみ */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.engel p strong {
+    display: block;
+    margin-bottom: 5px;
+    color: black; /* 商品名を黒に */
+}
+
+/* 説明文の段落は黒字に */
+.engel p:nth-child(2) {
+    color: black;
+}
+
+.headspa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.head1 img {
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin-bottom: 0; /* 画像下のマージン削除 */
+}
+
+.head2 {
+    max-width: 300px;
+}
+
+.head2 p {
+    background-color: white; /* 背景色を白に */
+    color: rgb(139, 111, 71); /* 料金の文字を茶色に */
+    padding: 15px;
+    margin: 0 0 10px 0; /* 段落間のマージンのみ */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.head2 p strong {
+    display: block;
+    margin-bottom: 5px;
+    color: black; /* 商品名を黒に */
+}
+
+/* 説明文の段落は黒字に */
+.head2 p:nth-child(2) {
+    color: black;
+}
+
+.touch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column; /* モバイルでは縦配置 */
+}
+
+.touch1 img {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-bottom: 0; /* 画像下のマージン削除 */
+}
+
+.touch2 {
+    max-width: 300px;
+}
+
+.touch2 p {
+    background-color: white; /* 背景色を白に */
+    color: rgb(139, 111, 71); /* 料金の文字を茶色に */
+    padding: 15px;
+    margin: 0 0 10px 0; /* 段落間のマージンのみ */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.touch2 p strong {
+    display: block;
+    margin-bottom: 5px;
+    color: black; /* 商品名を黒に */
+}
+
+footer {
+    background-color: #FDF5E6;
+    padding-bottom: 30px;
+}
+
+footer h2 {
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* 既存の.family1, .family2, .family3のスタイルを上書き */
+.family1, .family2, .family3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+}
+
+
+.family1 img, .family2 img, .family3 img {
+    width: 300px;
+    height: auto;
+    border-radius: 30px;
+}
+
+/* テキストエリア */
+.family1 .text, .family2 .text, .family3 .text {
+    text-align: center;
+    padding: 20px;
+}
+
+.family1 .text h3, 
+.family2 .text h3, 
+.family3 .text h3 {
+    font-size: 1.5rem;
+    color: rgb(139, 111, 71);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.family3 .text ul {
+    list-style-position: inside;
+    text-align: center;
+    padding: 0;
+    list-style: none;
+}
+
+/* 選べるオプション全体を中央配置 */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.contact a,
+.Access a {
+    text-decoration: none; /* 下線を消す */
+    display: inline-block; /* インラインブロックに */
+    transition: transform 0.2s; /* ホバー時のアニメーション */
+}
+
+.contact a:hover,
+.Access a:hover {
+    transform: scale(1.1); /* ホバー時に少し拡大 */
+}
+
+/* Contact & Access のアイコン - モバイル版 */
+.contact i {
+    font-size: 2.5rem;
+    margin: 20px 10px;
+    color: white; /* アイコンの色を白に */
+    background-color: rgb(139, 111, 71); /* 背景色 */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* 丸く */
+    display: inline-flex; /* flexで中央揃え */
+    justify-content: center;
+    align-items: center;
+}
+
+.Access i {
+    font-size: 2.5rem;
+    margin: 20px 10px;
+    color: white; /* アイコンの色を白に */
+    background-color: rgb(139, 111, 71); /* 背景色 */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* 丸く */
+    display: inline-flex; /* flexで中央揃え */
+    justify-content: center;
+    align-items: center;
+}
+
+/* 地図のレスポンシブ対応 */
+.Access iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    border: 0;
+    margin-top: 30px; /* 文字と地図の間に余白追加 */
+    margin-bottom: 30px; /* 地図とアイコンの間に余白追加 */
+    display: block; /* ブロック要素として表示 */
+}
+
+
+
+/* PC表示 */
+@media (min-width:1200px) {
+
+    .header-logo {
+        width: 100px;
+        height: 60px;
+        border-radius: 30px;
+        left: 40px;
+    }
+
+     header ul li {
+    padding: 30px;
+
+}
+
+header ul {
+    justify-content: center;
+    padding: 20px 100;
+}
+
+    .grid img {
+        display: flex;
+    }
+
+    .home h1 {
+        font-size: 5rem;
+    }
+
+    .top-logo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .family1, .family2, .family3 {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 30px;
+        box-sizing: border-box;
+        margin: 40px 0;
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .Family {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    
+    .family1 img, .family2 img, .family3 img {
+        width: 400px;
+        height: auto;
+        border-radius: 30px;
+        flex-shrink: 0;
+    }
+    
+    .family1 .text, .family2 .text, .family3 .text {
+        text-align: left;
+        padding: 0;
+        flex: 1;
+    }
+    
+    .family1 .text h3, 
+    .family2 .text h3, 
+    .family3 .text h3 {
+        margin-bottom: 15px;
+    }
+    
+    .family3 .text ul {
+        text-align: left;
+        list-style-position: outside;
+        padding-left: 20px;
+    }
+
+    /* Drink - 3列グリッド */
+    .grid_center {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .grid_center h3 {
+        grid-column: 1 / -1; /* 見出しは全幅 */
+    }
+
+    .drink-item {
+        max-width: none;
+    }
+
+    .grid_center img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .grid_center tr {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    /* Food - 横2列 */
+    .carry {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .tomato, .coconut {
+        flex: 0 0 auto;
+        max-width: none;
+    }
+
+    
+    /* Sweets */
+    .strovery {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .sweets-note {
+        max-width: 500px;
+    }
+
+    .boss {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 30px;
+        width: 100%;
+        max-width: 1000px;
+        margin: 40px auto; /* 中央配置 */
+        padding: 0;
+    }
+
+    .god {
+        flex-shrink: 0;
+    }
+
+    .engel {
+        text-align: left;
+        flex: 1;
+        max-width: none;
+    }
+
+    .headspa, .touch {
+        display: flex;
+        flex-direction: row; /* PC版では横配置 */
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 30px;
+        width: 100%;
+        max-width: 1000px;
+        margin: 40px 0; /* autoに戻す */
+        padding: 0;
+    }
+
+    .head1, .touch1 {
+        flex-shrink: 0;
+    }
+    
+    
+    .god img, .touch1 img {
+        width: 350px;
+    }
+    
+    .head1 img {
+        width: 350px;
+        height: auto;
+        max-height: 350px;
+    }
+    
+    .head2, .touch2 {
+        text-align: left;
+        flex: 1;
+        max-width: none;
+    }
+
+    .options-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* Contact & Access のアイコン - PC版 */
+    .contact i {
+        font-size: 3.5rem; /* 4remから3.5remに縮小 */
+        margin: 20px 15px;
+        width: 90px; /* 100pxから90pxに縮小 */
+        height: 90px; /* 100pxから90pxに縮小 */
+    }
+
+    .Access i {
+        font-size: 3.5rem; /* 4remから3.5remに縮小 */
+        margin: 20px 15px;
+        width: 90px; /* 100pxから90pxに縮小 */
+        height: 90px; /* 100pxから90pxに縮小 */
+    }
+
+    /* 地図のレスポンシブ対応 - PC版 */
+    .Access iframe {
+        width: 600px;
+        height: 450px;
+    }
+}
