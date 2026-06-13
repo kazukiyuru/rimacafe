@@ -103,6 +103,15 @@ section {
     height: auto;
 }
 
+/* Concept見出しがスクロール時にずれるのを防ぐ（横方向の移動を無効化） */
+.concept .page2.fade-in {
+    transform: none;
+}
+
+.concept .page2.fade-in.is-visible {
+    transform: none;
+}
+
 .concept .fade-in:nth-child(2) p span {
     color: rgb(139, 111, 71);
     font-weight: bold;
@@ -325,6 +334,8 @@ h2 {
     margin: 0 auto;
     margin-bottom: 0;
     border-radius: 10px 10px 0 0;
+    width: 300px;
+    height: auto;
 }
 
 .drink-item p {
@@ -897,9 +908,7 @@ footer p {
 
     .grid_center img {
         width: 100%;
-        height: 250px;
-        object-fit: cover;
-        object-position: top;
+        height: auto;
         border-radius: 10px 10px 0 0;
     }
 
@@ -1057,6 +1066,44 @@ footer p {
     height: auto;
     margin-bottom: 20px;
     border-radius: 30px;
+}
+
+.watanabe-description {
+    max-width: 600px;
+    margin: 0 auto 16px auto;
+    padding: 0 20px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.watanabe-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.watanabe-links a {
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.watanabe-links a:hover {
+    transform: scale(1.1);
+}
+
+.watanabe-links i {
+    font-size: 1.6rem;
+    margin: 0 10px;
+    color: white;
+    background-color: rgb(139, 111, 71);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .watanabe-items {
