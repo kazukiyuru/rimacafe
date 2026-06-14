@@ -568,6 +568,12 @@ h3.fade-in {
     margin-top: 50px;
 }
 
+/* メニュー各セクションの前後に余白を追加 */
+.menu .grid > h2,
+.menu .grid > h3 {
+    margin: 50px 0;
+}
+
 .headspa {
     display: flex;
     justify-content: center;
