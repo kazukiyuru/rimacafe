@@ -395,6 +395,10 @@ h2 {
     color: black;
 }
 
+.monthly-special p2 {
+margin: 50px;
+}
+
 .tomato p .menu-description,
 .coconut p .menu-description {
     display: block;
@@ -904,6 +908,10 @@ footer p {
 
     .grid_center .drink-item:nth-child(2) {
         grid-column: 2 / 3;
+    }
+
+    .grid_center .drink-item:nth-child(3) {
+        grid-column: 3 / 4;
     }
 
     .drink-item {
