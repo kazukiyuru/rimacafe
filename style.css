@@ -1483,3 +1483,82 @@ footer p {
         letter-spacing: 0.1em;
     }
 }
+
+/* ===== アンカースクロールの固定ヘッダー分オフセット（8-2-2） ===== */
+section {
+    scroll-margin-top: 60px;
+}
+
+/* ===== トップへ戻るボタン（8-1-2） ===== */
+#page-top {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 998;
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+#page-top a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgb(139, 111, 71);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+#page-top a:hover {
+    background: rgb(110, 87, 55);
+}
+
+#page-top.up-move {
+    animation: pageTopUp 0.5s forwards;
+}
+
+@keyframes pageTopUp {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#page-top.down-move {
+    animation: pageTopDown 0.5s forwards;
+}
+
+@keyframes pageTopDown {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 1; transform: translateY(100px); }
+}
+
+/* ===== 見出し下に線が伸びる（5-3-3） ===== */
+.line-heading {
+    position: relative;
+}
+
+.line-heading::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    width: 60px;
+    height: 2px;
+    background: rgb(139, 111, 71);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s ease 0.3s;
+}
+
+.line-heading.is-visible::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ===== ナビの現在地ハイライト（5-1-26） ===== */
+header ul li a.current {
+    color: rgb(139, 111, 71);
+}

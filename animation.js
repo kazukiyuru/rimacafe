@@ -58,10 +58,59 @@
     });
 })();
 
+// トップへ戻るボタン（8-1-2：指定の高さを超えたら下から出現）
+(function() {
+    const pageTop = document.getElementById('page-top');
+    if (!pageTop) return;
+    let shown = false;
+
+    function togglePageTop() {
+        if (window.scrollY > window.innerHeight) {
+            if (!shown) {
+                pageTop.classList.add('up-move');
+                pageTop.classList.remove('down-move');
+                shown = true;
+            }
+        } else if (shown) {
+            pageTop.classList.add('down-move');
+            pageTop.classList.remove('up-move');
+            shown = false;
+        }
+    }
+
+    window.addEventListener('scroll', togglePageTop);
+})();
+
+// ナビの現在地ハイライト（5-1-26）
+(function() {
+    const navLinks = document.querySelectorAll('header ul li a[href^="#"]');
+    if (!navLinks.length) return;
+    const sections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    function highlightCurrent() {
+        const pos = window.scrollY + 80; // 固定ヘッダー分のオフセット
+        let currentId = sections[0] ? sections[0].id : null;
+        sections.forEach(sec => {
+            if (pos >= sec.offsetTop) currentId = sec.id;
+        });
+        navLinks.forEach(a => {
+            a.classList.toggle('current', a.getAttribute('href') === '#' + currentId);
+        });
+    }
+
+    window.addEventListener('scroll', highlightCurrent);
+    window.addEventListener('load', highlightCurrent);
+})();
+
 // スクロールアニメーション
 document.addEventListener('DOMContentLoaded', function() {
+    // 主要な見出しに下線アニメーション用のクラスを付与（5-3-3）
+    document.querySelectorAll('section h2, .menu .grid > h3').forEach(h => {
+        h.classList.add('line-heading');
+    });
+
     // アニメーション対象の要素を取得
-    const fadeElements = document.querySelectorAll('.fade-in, .pop-in');
+    const fadeElements = document.querySelectorAll('.fade-in, .pop-in, .line-heading');
     
     // Intersection Observer のオプション
     const options = {
