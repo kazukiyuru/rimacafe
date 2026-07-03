@@ -105,7 +105,8 @@
 // スクロールアニメーション
 document.addEventListener('DOMContentLoaded', function() {
     // 主要な見出しに下線アニメーション用のクラスを付与（5-3-3）
-    document.querySelectorAll('section h2, .menu .grid > h3').forEach(h => {
+    // ※h3はpaddingがなく線が文字に重なるためh2のみ
+    document.querySelectorAll('section h2').forEach(h => {
         h.classList.add('line-heading');
     });
 
