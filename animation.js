@@ -39,6 +39,26 @@
     window.addEventListener('load', fixedHeader);
 })();
 
+// ハンバーガーメニュー（5-2-1：3本線が×に＋ナビが右からスライドイン）
+(function() {
+    const openbtn = document.getElementById('openbtn');
+    const gnav = document.getElementById('g-nav');
+    if (!openbtn || !gnav) return;
+
+    openbtn.addEventListener('click', function() {
+        openbtn.classList.toggle('active');
+        gnav.classList.toggle('panelactive');
+    });
+
+    // ナビのリンクをクリックしたらメニューを閉じる
+    gnav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            openbtn.classList.remove('active');
+            gnav.classList.remove('panelactive');
+        });
+    });
+})();
+
 // スクロールアニメーション
 document.addEventListener('DOMContentLoaded', function() {
     // アニメーション対象の要素を取得
