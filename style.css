@@ -127,12 +127,13 @@ html {
 
 .scrolldown4 span {
     position: absolute;
-    left: -20px;
-    bottom: 10px;
+    left: 50%;
+    bottom: 60px;
+    transform: translateX(-50%);
     color: #eee;
     font-size: 0.7rem;
     letter-spacing: 0.05em;
-    writing-mode: vertical-rl;
+    white-space: nowrap;
 }
 
 .scrolldown4::before {
@@ -682,6 +683,13 @@ margin: 50px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background: #fff;
+    border: 2px solid rgb(139, 111, 71);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 6px 16px rgba(139, 111, 71, 0.15);
 }
 
 .god img {
@@ -803,6 +811,13 @@ h3.fade-in {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background: #fff;
+    border: 2px solid rgb(139, 111, 71);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 6px 16px rgba(139, 111, 71, 0.15);
 }
 
 .head1 img {
