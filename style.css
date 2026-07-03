@@ -1587,7 +1587,8 @@ body.splash-active .home.fade-in {
 .family3 img,
 .farmer-content img,
 .god img,
-.head1 img {
+.head1 img,
+.touch1 img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1596,7 +1597,8 @@ body.splash-active .home.fade-in {
 .family3 img:hover,
 .farmer-content img:hover,
 .god img:hover,
-.head1 img:hover {
+.head1 img:hover,
+.touch1 img:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
