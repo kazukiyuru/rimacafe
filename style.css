@@ -32,6 +32,27 @@ html {
     transition-delay: 0.6s;
 }
 
+/* 強調ポップイン（8-1-4：注意書き・地図など目立たせたい要素用） */
+.pop-in {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.pop-in.is-visible {
+    animation: popInAnime 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popInAnime {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 header {
     background-color: white;
     height: 10vh;
@@ -1108,6 +1129,8 @@ footer p {
 }
 
 .watanabe-links i {
+    position: relative;
+    overflow: hidden;
     font-size: 1.6rem;
     margin: 0 10px;
     color: white;
@@ -1118,6 +1141,28 @@ footer p {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+}
+
+/* クリックしたら波紋が広がる（7-1-11） */
+.watanabe-links i::after,
+.sns-links i::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.3s, opacity 1s;
+}
+
+.watanabe-links a:active i::after,
+.sns-links a:active i::after {
+    transform: scale(0, 0);
+    transition: 0s;
+    opacity: 0.4;
 }
 
 /* ===== Our Family SNSリンク ===== */
@@ -1138,6 +1183,8 @@ footer p {
 }
 
 .sns-links i {
+    position: relative;
+    overflow: hidden;
     font-size: 1.6rem;
     margin: 0 10px;
     color: white;

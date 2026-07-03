@@ -1,7 +1,7 @@
 // スクロールアニメーション
 document.addEventListener('DOMContentLoaded', function() {
     // アニメーション対象の要素を取得
-    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeElements = document.querySelectorAll('.fade-in, .pop-in');
     
     // Intersection Observer のオプション
     const options = {
