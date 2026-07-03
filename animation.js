@@ -1,3 +1,44 @@
+// ローディング画面（4-1-6手書き風＋4-1-7同日2回目はスキップ）
+(function() {
+    const splash = document.getElementById('splash');
+    if (!splash) return;
+
+    const today = new Date().toDateString();
+    if (localStorage.getItem('rimacafe_splash_date') === today) {
+        // 同日2回目以降のアクセスはローディングを表示しない
+        splash.style.display = 'none';
+        return;
+    }
+    localStorage.setItem('rimacafe_splash_date', today);
+
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            splash.classList.add('fadeout');
+            setTimeout(function() {
+                splash.style.display = 'none';
+            }, 900);
+        }, 2800); // 描画アニメーション完了を待ってからフェードアウト
+    });
+})();
+
+// スクロール途中からヘッダーが縮小して固定（5-1-8）
+(function() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const headerH = header.offsetHeight;
+
+    function fixedHeader() {
+        if (window.scrollY >= headerH * 2) {
+            header.classList.add('height-min');
+        } else {
+            header.classList.remove('height-min');
+        }
+    }
+
+    window.addEventListener('scroll', fixedHeader);
+    window.addEventListener('load', fixedHeader);
+})();
+
 // スクロールアニメーション
 document.addEventListener('DOMContentLoaded', function() {
     // アニメーション対象の要素を取得

@@ -53,6 +53,138 @@ html {
     }
 }
 
+/* ===== ローディング画面（4-1-6：手書き風ロゴ） ===== */
+#splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #FDF5E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease;
+}
+
+#splash.fadeout {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#splash svg {
+    width: min(80vw, 500px);
+    height: auto;
+}
+
+.splash-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 72px;
+    fill: transparent;
+    stroke: rgb(139, 111, 71);
+    stroke-width: 1.5;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: splashDraw 2.2s ease forwards,
+               splashFill 0.8s ease 1.8s forwards;
+}
+
+@keyframes splashDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes splashFill {
+    to {
+        fill: rgb(139, 111, 71);
+    }
+}
+
+/* ===== スクロール誘導矢印（9-1-4） ===== */
+.scrolldown4 {
+    position: absolute;
+    bottom: 3%;
+    right: 50%;
+    z-index: 2;
+    animation: arrowmove 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowmove {
+    0% { bottom: 3%; }
+    50% { bottom: 5%; }
+    100% { bottom: 3%; }
+}
+
+.scrolldown4 span {
+    position: absolute;
+    left: -20px;
+    bottom: 10px;
+    color: #eee;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    writing-mode: vertical-rl;
+}
+
+.scrolldown4::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -6px;
+    width: 1px;
+    height: 20px;
+    background: #eee;
+    transform: skewX(-31deg);
+}
+
+.scrolldown4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    height: 50px;
+    background: #eee;
+}
+
+/* ===== ヘッダー縮小（5-1-8） ===== */
+header.height-min {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    animation: headerDown 0.5s forwards;
+}
+
+@keyframes headerDown {
+    from {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== カードホバーで浮き上がる（7-1-18） ===== */
+.drink-item,
+.tomato,
+.coconut,
+.strovery {
+    /* fade-inのopacityアニメーションを維持しつつホバーを追加 */
+    transition: opacity 0.8s ease-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.drink-item:hover,
+.tomato:hover,
+.coconut:hover,
+.strovery:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
 header {
     background-color: white;
     height: 10vh;
