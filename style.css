@@ -113,9 +113,13 @@ html {
 /* ===== スクロール誘導矢印（9-1-4） ===== */
 .scrolldown4 {
     position: absolute;
+    left: 50%;
     bottom: 3%;
-    right: 50%;
+    transform: translateX(-50%);
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     animation: arrowmove 1.5s ease-in-out infinite;
 }
 
@@ -126,35 +130,21 @@ html {
 }
 
 .scrolldown4 span {
-    position: absolute;
-    left: 50%;
-    bottom: 60px;
-    transform: translateX(-50%);
     color: #eee;
     font-size: 0.7rem;
     letter-spacing: 0.05em;
     white-space: nowrap;
+    margin-bottom: 10px;
 }
 
 .scrolldown4::before {
     content: "";
-    position: absolute;
-    bottom: 0;
-    right: -6px;
-    width: 1px;
-    height: 20px;
-    background: #eee;
-    transform: skewX(-31deg);
-}
-
-.scrolldown4::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 1px;
-    height: 50px;
-    background: #eee;
+    width: 12px;
+    height: 12px;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    transform: rotate(-45deg);
+    margin-top: -6px;
 }
 
 /* ===== ヘッダー縮小（5-1-8） ===== */
@@ -683,13 +673,6 @@ margin: 50px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background: #fff;
-    border: 2px solid rgb(139, 111, 71);
-    border-radius: 16px;
-    padding: 24px;
-    margin: 20px auto;
-    max-width: 700px;
-    box-shadow: 0 6px 16px rgba(139, 111, 71, 0.15);
 }
 
 .god img {
@@ -811,13 +794,6 @@ h3.fade-in {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background: #fff;
-    border: 2px solid rgb(139, 111, 71);
-    border-radius: 16px;
-    padding: 24px;
-    margin: 20px auto;
-    max-width: 700px;
-    box-shadow: 0 6px 16px rgba(139, 111, 71, 0.15);
 }
 
 .head1 img {
@@ -1605,18 +1581,22 @@ body.splash-active .home.fade-in {
     to { transform: scale(1); }
 }
 
-/* ===== Family・農家さん・珈琲屋さんの写真ホバー（7-1-18） ===== */
+/* ===== Family・農家さん・珈琲屋さん・Healingの写真ホバー（7-1-18） ===== */
 .family1 img,
 .family2 img,
 .family3 img,
-.farmer-content img {
+.farmer-content img,
+.god img,
+.head1 img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .family1 img:hover,
 .family2 img:hover,
 .family3 img:hover,
-.farmer-content img:hover {
+.farmer-content img:hover,
+.god img:hover,
+.head1 img:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
