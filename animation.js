@@ -3,20 +3,29 @@
     const splash = document.getElementById('splash');
     if (!splash) return;
 
-    if (sessionStorage.getItem('rimacafe_splash_shown')) {
+    // アニメーションを減らす設定のユーザーにはローディングを表示しない
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || sessionStorage.getItem('rimacafe_splash_shown')) {
         // サイト内を行き来している間はローディングを表示しない
         splash.style.display = 'none';
         return;
     }
     sessionStorage.setItem('rimacafe_splash_shown', '1');
 
+    // ローディング中はヒーローの文字を隠しておく（明けてからフェードイン）
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('splash-active');
+    });
+
     window.addEventListener('load', function() {
         setTimeout(function() {
             splash.classList.add('fadeout');
+            document.body.classList.remove('splash-active');
             setTimeout(function() {
                 splash.style.display = 'none';
             }, 900);
-        }, 2800); // 描画アニメーション完了を待ってからフェードアウト
+        }, 2800); // ロゴアニメーション完了を待ってからフェードアウト
     });
 })();
 

@@ -1573,3 +1573,57 @@ section {
 header ul li a.current {
     color: rgb(139, 111, 71);
 }
+
+/* ===== ローディング中はヒーローの文字を隠し、明けてからフェードイン ===== */
+body.splash-active .home.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* ===== ヒーロー背景ゆっくりズームアウト（6-1-3） ===== */
+.page1::after {
+    animation: heroZoom 8s ease-out forwards;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
+}
+
+/* ===== Family・農家さん・珈琲屋さんの写真ホバー（7-1-18） ===== */
+.family1 img,
+.family2 img,
+.family3 img,
+.farmer-content img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.family1 img:hover,
+.family2 img:hover,
+.family3 img:hover,
+.farmer-content img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== アニメーションを減らす設定のユーザーへの配慮 ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .fade-in,
+    .pop-in,
+    body.splash-active .home.fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}
