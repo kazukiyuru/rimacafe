@@ -57,7 +57,7 @@ html {
 #splash {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: 10000;
     background: #FDF5E6;
     display: flex;
     justify-content: center;
