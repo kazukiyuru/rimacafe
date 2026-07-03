@@ -53,13 +53,15 @@ html {
     }
 }
 
-/* ===== ローディング画面（4-1-6：手書き風ロゴ） ===== */
+/* ===== ローディング画面（ロゴがふわっと浮かび上がる） ===== */
 #splash {
     position: fixed;
     inset: 0;
     z-index: 10000;
-    background: #FDF5E6;
+    /* ロゴ画像の背景色に合わせて縁を見えなくする */
+    background: #fff9ef;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: opacity 0.8s ease;
@@ -70,32 +72,41 @@ html {
     pointer-events: none;
 }
 
-#splash svg {
-    width: min(80vw, 500px);
+.splash-logo {
+    width: min(70vw, 320px);
     height: auto;
+    opacity: 0;
+    animation: splashLogoIn 1.4s ease-out forwards;
 }
 
-.splash-text {
-    font-family: 'Dancing Script', cursive;
-    font-size: 72px;
-    fill: transparent;
-    stroke: rgb(139, 111, 71);
-    stroke-width: 1.5;
-    stroke-dasharray: 600;
-    stroke-dashoffset: 600;
-    animation: splashDraw 2.2s ease forwards,
-               splashFill 0.8s ease 1.8s forwards;
-}
-
-@keyframes splashDraw {
+@keyframes splashLogoIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
     to {
-        stroke-dashoffset: 0;
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
-@keyframes splashFill {
+.splash-catch {
+    margin-top: 18px;
+    color: rgb(139, 111, 71);
+    font-size: 1.05rem;
+    letter-spacing: 0.15em;
+    opacity: 0;
+    animation: splashCatchIn 1s ease 1.2s forwards;
+}
+
+@keyframes splashCatchIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
     to {
-        fill: rgb(139, 111, 71);
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
