@@ -1,15 +1,14 @@
-// ローディング画面（4-1-6手書き風＋4-1-7同日2回目はスキップ）
+// ローディング画面（4-1-6手書き風。同一セッション内の2回目以降はスキップ）
 (function() {
     const splash = document.getElementById('splash');
     if (!splash) return;
 
-    const today = new Date().toDateString();
-    if (localStorage.getItem('rimacafe_splash_date') === today) {
-        // 同日2回目以降のアクセスはローディングを表示しない
+    if (sessionStorage.getItem('rimacafe_splash_shown')) {
+        // サイト内を行き来している間はローディングを表示しない
         splash.style.display = 'none';
         return;
     }
-    localStorage.setItem('rimacafe_splash_date', today);
+    sessionStorage.setItem('rimacafe_splash_shown', '1');
 
     window.addEventListener('load', function() {
         setTimeout(function() {
