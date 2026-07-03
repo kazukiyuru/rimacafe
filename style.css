@@ -73,7 +73,7 @@ html {
 }
 
 .splash-logo {
-    width: min(70vw, 320px);
+    width: min(85vw, 440px);
     height: auto;
     opacity: 0;
     animation: splashLogoIn 1.4s ease-out forwards;
@@ -93,7 +93,7 @@ html {
 .splash-catch {
     margin-top: 18px;
     color: rgb(139, 111, 71);
-    font-size: 1.05rem;
+    font-size: 1.3rem;
     letter-spacing: 0.15em;
     opacity: 0;
     animation: splashCatchIn 1s ease 1.2s forwards;
