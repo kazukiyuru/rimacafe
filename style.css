@@ -1603,6 +1603,231 @@ body.splash-active .home.fade-in {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* ===== Healing LP：Menu内リンクボタン ===== */
+.healing-menu-lead {
+    margin-bottom: 20px !important;
+}
+
+.healing-cta-btn {
+    display: inline-block;
+    background: rgb(139, 111, 71);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.healing-cta-btn:hover {
+    transform: scale(1.05);
+    background: rgb(110, 87, 55);
+}
+
+/* ===== Healing LP：ヒーロー ===== */
+.healing-hero {
+    position: relative;
+    width: 100vw;
+    min-height: 80vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 100px 20px 60px;
+    box-sizing: border-box;
+}
+
+.healing-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url(img/healng.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(0.6) contrast(0.9);
+    z-index: 0;
+    animation: heroZoom 8s ease-out forwards;
+}
+
+.healing-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    text-align: center;
+    color: #fff;
+}
+
+.healing-hero-eyebrow {
+    letter-spacing: 0.2em;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    opacity: 0.9;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.healing-hero-inner h1 {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.healing-hero-lead {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+/* ===== Healing LP：Healingとは ===== */
+.healing-lead {
+    width: 100vw;
+    min-height: auto;
+    height: auto;
+    padding: 70px 20px;
+}
+
+.healing-lead > p.fade-in {
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.9;
+}
+
+.healing-practitioners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 50px auto 0;
+}
+
+.healing-practitioner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+    max-width: 480px;
+}
+
+.healing-practitioner img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.healing-practitioner img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.healing-practitioner .text {
+    text-align: center;
+    padding: 20px;
+}
+
+.healing-practitioner .text h3 {
+    font-size: 1.3rem;
+    color: rgb(139, 111, 71);
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.healing-practitioner .text ul {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+/* ===== Healing LP：ご利用の流れ ===== */
+.healing-flow {
+    width: 100vw;
+    min-height: auto;
+    height: auto;
+    padding: 70px 20px;
+    background-color: #FDF5E6;
+}
+
+.flow-steps {
+    list-style: none;
+    max-width: 640px;
+    margin: 30px auto 0;
+    padding: 0;
+    text-align: left;
+}
+
+.flow-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.flow-num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgb(139, 111, 71);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.flow-steps h3 {
+    color: rgb(139, 111, 71);
+    margin-bottom: 6px;
+    font-size: 1.05rem;
+}
+
+.flow-steps p {
+    color: #555;
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+@media (min-width: 1200px) {
+    .healing-hero-inner h1 {
+        font-size: 3.5rem;
+    }
+
+    .healing-hero-lead {
+        font-size: 1.1rem;
+    }
+
+    .healing-practitioners {
+        gap: 20px;
+    }
+
+    .healing-practitioner {
+        flex-direction: row;
+        align-items: flex-start;
+        max-width: none;
+        width: 100%;
+        gap: 30px;
+        text-align: left;
+    }
+
+    .healing-practitioner .text {
+        text-align: left;
+        padding: 0;
+    }
+
+    .healing-practitioner .text ul {
+        text-align: left;
+        padding-left: 0;
+    }
+}
+
 /* ===== アニメーションを減らす設定のユーザーへの配慮 ===== */
 @media (prefers-reduced-motion: reduce) {
     *,
