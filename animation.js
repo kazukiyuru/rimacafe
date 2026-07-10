@@ -14,19 +14,18 @@
     sessionStorage.setItem('rimacafe_splash_shown', '1');
 
     // ローディング中はヒーローの文字を隠しておく（明けてからフェードイン）
-    document.addEventListener('DOMContentLoaded', function() {
-        document.body.classList.add('splash-active');
-    });
+    document.body.classList.add('splash-active');
 
-    window.addEventListener('load', function() {
+    // ※window.load（全画像・フォント読み込み完了）を待つと、モバイル回線では
+    // ヒーロー画像等の読み込みが遅い分だけ表示時間が延びてしまうため、
+    // splash自身のロゴ演出（2.8秒）だけを基準にフェードアウトする
+    setTimeout(function() {
+        splash.classList.add('fadeout');
+        document.body.classList.remove('splash-active');
         setTimeout(function() {
-            splash.classList.add('fadeout');
-            document.body.classList.remove('splash-active');
-            setTimeout(function() {
-                splash.style.display = 'none';
-            }, 900);
-        }, 2800); // ロゴアニメーション完了を待ってからフェードアウト
-    });
+            splash.style.display = 'none';
+        }, 900);
+    }, 2800);
 })();
 
 // スクロール途中からヘッダーが縮小して固定（5-1-8）

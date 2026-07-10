@@ -159,6 +159,13 @@ header.height-min {
     animation: headerDown 0.5s forwards;
 }
 
+/* 縮小時はロゴが枠からはみ出さないようサイズを合わせる */
+header.height-min .header-logo {
+    width: 40px;
+    height: 32px;
+    border-radius: 14px;
+}
+
 @keyframes headerDown {
     from {
         opacity: 0;
