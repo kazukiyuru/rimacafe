@@ -157,6 +157,12 @@ header.height-min {
     z-index: 999;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     animation: headerDown 0.5s forwards;
+    transition: transform 0.3s ease;
+}
+
+/* 下スクロール中はヘッダーを隠して閲覧領域を広げる（UpMove/DownMove） */
+header.height-min.header-hide {
+    transform: translateY(-100%);
 }
 
 /* 縮小時はロゴが枠からはみ出さないようサイズを合わせる */
@@ -1630,4 +1636,16 @@ body.splash-active .home.fade-in {
         opacity: 1;
         transform: none;
     }
+}
+
+/* ===== スクロール進捗バー（Scrollgress） ===== */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: rgb(139, 111, 71);
+    z-index: 10001;
+    transition: width 0.1s ease-out;
 }

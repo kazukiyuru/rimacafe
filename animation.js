@@ -29,17 +29,34 @@
 })();
 
 // スクロール途中からヘッダーが縮小して固定（5-1-8）
+// ＋下スクロール中は隠し、上スクロールで再表示（UpMove/DownMove）
 (function() {
     const header = document.querySelector('header');
     if (!header) return;
     const headerH = header.offsetHeight;
+    let lastScrollY = window.scrollY;
 
     function fixedHeader() {
-        if (window.scrollY >= headerH * 2) {
+        const currentY = window.scrollY;
+
+        if (currentY >= headerH * 2) {
             header.classList.add('height-min');
+
+            // ハンバーガーメニューが開いている間は隠さない
+            const gnavOpen = document.getElementById('g-nav')?.classList.contains('panelactive');
+            if (!gnavOpen) {
+                if (currentY > lastScrollY) {
+                    header.classList.add('header-hide'); // 下スクロール → 隠す
+                } else {
+                    header.classList.remove('header-hide'); // 上スクロール → 再表示
+                }
+            }
         } else {
             header.classList.remove('height-min');
+            header.classList.remove('header-hide');
         }
+
+        lastScrollY = currentY;
     }
 
     window.addEventListener('scroll', fixedHeader);
@@ -64,6 +81,22 @@
             gnav.classList.remove('panelactive');
         });
     });
+})();
+
+// スクロール進捗バー（Scrollgress）
+(function() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+
+    function updateProgress() {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        bar.style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('resize', updateProgress);
+    window.addEventListener('load', updateProgress);
 })();
 
 // トップへ戻るボタン（8-1-2：指定の高さを超えたら下から出現）
