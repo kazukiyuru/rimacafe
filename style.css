@@ -786,6 +786,18 @@ margin: 50px;
     padding: 0 2px;
 }
 
+/* モニター価格などを一目で分かるバッジ表示にする */
+.price-badge {
+    display: inline-block;
+    background-color: rgb(139, 111, 71);
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-left: 4px;
+}
+
 /* ===== */
 
 .options-wrapper {
