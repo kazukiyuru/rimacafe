@@ -671,6 +671,14 @@ margin: 50px;
     color: black;
 }
 
+.strovery.no-image p {
+    border-radius: 10px;
+}
+
+.sweets-season-label {
+    margin-top: 25px;
+}
+
 .sweets-note {
     background-color: white;
     color: black;
