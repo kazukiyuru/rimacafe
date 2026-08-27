@@ -3,8 +3,11 @@
 #
 # 背景：rimacafe はスタンドアロンで rimacafe.netlify.app として公開しているが、
 # 以下の場所にも同じ内容のコピーを配置しており、そちらは自動更新されない：
-#   - self_introduction/rimacafe/   （本サイト kazukitakao.netlify.app 用）
-#   - portfolio-design/portfolio-b/rimacafe/  （B案ポートフォリオ用）
+#   - portfolio-design/portfolio-b/rimacafe/
+#     （本サイト kazukitakao.netlify.app のWorks欄リンク先として必要）
+#
+# 注：self_introduction/rimacafe/ はかつて本サイト用だったが、
+# self_introductionのNetlifyサイト自体を削除済みのため同期対象から除外。
 #
 # 使い方：rimacafe を更新してコミットする前後どちらでもよいので、
 # このスクリプトを実行してコピー先に反映する。
@@ -14,7 +17,6 @@ set -e
 cd "$(dirname "$0")"
 
 DESTS=(
-  "../self_introduction/rimacafe"
   "../portfolio-design/portfolio-b/rimacafe"
 )
 
