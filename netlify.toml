@@ -1,0 +1,22 @@
+# Netlify設定：セキュリティヘッダーと、公開不要ファイルの非公開化
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+# リポジトリ管理用のファイルは公開しない（実体は置いたまま404を返す）
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/sync-to-copies.sh"
+  to = "/404.html"
+  status = 404
+  force = true
